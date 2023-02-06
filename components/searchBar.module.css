@@ -4,7 +4,7 @@
   background-image: url(/yellow.jpg);
   height: auto;
   background-size: 100%;
-  height: 279px;
+  height: 350px;
 }
 
 .header_section {
@@ -13,6 +13,10 @@
   clip-path: polygon(0 0, 100% 0, 96% 100%, 3% 100%) !important;
   height: auto;
   padding: 10px 0px;
+}
+
+.mobile_menu {
+  display: none;
 }
 
 .menu {
@@ -44,6 +48,7 @@
 
 .logo_name {
   text-align: center;
+  margin-top: 30px;
 }
 
 .logo_name_text {
@@ -52,52 +57,75 @@
   font-weight: 600;
 }
 
-
 .search_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .dropdown_select,
 .submit_btn,
 .search_bar {
-    height: 40px;
-    border-radius: 5px;
-    align-self: center;
-    justify-content: center;
+  height: 40px;
+  border-radius: 5px;
+  align-self: center;
+  justify-content: center;
 }
 
-
 .dropdown_select {
-    margin-right: 35px;
+  margin-right: 35px;
 }
 
 .search_bar_box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search_bar {
-    width: 475px;
-    background-color: #ffff;
-    color: black;
-    border-top-right-radius: 0%;
-    border-bottom-right-radius: 0%;
-    padding: 5px;
+  width: 475px;
+  background-color: #ffff;
+  color: black;
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 0%;
+  padding: 5px;
 }
 
 .submit_btn {
-    background-color: #f26522 !important;
-    border-color: #f26522 !important;
-    width: 43px;
-    text-align: center;
-    border-top-left-radius: 0%;
-    border-bottom-left-radius: 0%;
+  background-color: #f26522 !important;
+  border-color: #f26522 !important;
+  width: 43px;
+  text-align: center;
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0%;
 }
 
 .button_text {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .header_section {
+    display: none;
+  }
+
+  .search_container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+  }
+
+  .search_bar {
+    width: 85vw;
+  }
+
+  .search_bar_box {
+    margin-top: 17px !important;
+  }
+
+  .mobile_menu {
+    display: block;
+    margin-left: 10px;
+    cursor: pointer;
+  }
 }

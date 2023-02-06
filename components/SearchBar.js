@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import styles from "./searchBar.module.css";
 
-export default function SearchBar() {
+export default function SearchBar({ selectedCategory, setSelectedCategory }) {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -16,6 +16,14 @@ export default function SearchBar() {
 
   return (
     <div className={styles.main_container}>
+      <div className={styles.mobile_menu}>
+        <svg viewBox="0 0 100 80" width="30" height="40">
+          <rect width="100" height="20"></rect>
+          <rect y="30" width="100" height="20"></rect>
+          <rect y="60" width="100" height="20"></rect>
+        </svg>
+      </div>
+
       <div className={styles.header_section}>
         <div className="row">
           <div>
@@ -46,8 +54,12 @@ export default function SearchBar() {
       </div>
 
       <div className={styles.search_container}>
-        <select className={styles.dropdown_select}>
-          <option selected value="all">
+        <select
+          className={styles.dropdown_select}
+          value={selectedCategory}
+          onChange={(e) => setSelectedCategory(e.target.value)}
+        >
+          <option selected value={"all"}>
             All Category
           </option>
           {categories.map((item, i) => {

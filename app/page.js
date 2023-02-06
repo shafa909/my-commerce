@@ -1,12 +1,22 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
-import SearchBar from '@/components/SearchBar'
+"use client";
 
-const inter = Inter({ subsets: ['latin'] })
+import { Inter } from "@next/font/google";
+import SearchBar from "@/components/SearchBar";
+import {  useState } from "react";
+import ProductList from "@/components/ProductList";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [selectedCategory, setSelectedCategory] = useState("all");
+
   return (
-  <SearchBar/>
-  )
+    <div>
+      <SearchBar
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
+      <ProductList selectedCategory={selectedCategory} />
+    </div>
+  );
 }
